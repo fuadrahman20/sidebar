@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sidebar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container-fluid mt-4 mb-4 ms-5 me-5">
+          <a class="navbar-brand" href="#">
+            <img src="img/logo-sidebar.svg" class="img-fluid" alt="Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav fw-bold">
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#login">Dashboard OPD</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#fitur-utama">Fitur Utama</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#tutorial">Tutorial</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link" href="#pusat-bantuan">
+                  Pusat Bantuan <span class="ml-1 fa fa-question-circle h-20 w-20"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <button class="btn btn-primary fw-bold">Login</button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <style>
+        .log-baground {
+        background: url('https://sidebar.jabarprov.go.id/asset//landing-page/image/background-pusat-bantuan-landing-page.svg') no-repeat center/cover;
+        }
+      </style>
+      
+      <section id="login" class="log-baground bg-primary bg-cover pt-5 container-fluid px-4">
+        <div class="container">
+            <div class="row ms-5 me-5">
+                <div class="col-md-6 mt-5 mb-5">
+                  <h1 class="text-white text-4xl fw-bold mb-4" style="font-size: 44px;">SIDEBAR</h1>
+                  <p class="text-white text-sm md:text-lg max-w-md mb-4" style="font-size: 18px;">Sistem Informasi Dokumen Elektronik Jawa Barat atau SIDEBAR merupakan Aplikasi E-Office yang hadir untuk memberikan kemudahan bagi seluruh ASN dalam memproses, menindaklanjuti, dan mengarsipkan Naskah Dinas Elektronik di lingkungan Pemerintahan Daerah Provinsi Jawa Barat secara digital, praktis, dan aman. SIDEBAR “Dokumen Aman Dalam Genggaman”</p>
+                  <p class="text-white text-sm md:text-lg mb-4">Aplikasi SIDEBAR dapat diunduh di</p>
+                  <div class="d-flex">
+                    <a href="https://play.google.com/store/apps/details?id=id.go.jabarprov.office" class="me-2">
+                      <img src="img/button-download-google-play.svg" alt="button-google-play" class="w-100 me-3" height="55" width="141">
+                    </a>
+                    <a href="https://apps.apple.com/id/app/sidebar-jawa-barat/id1630869510">
+                      <img src="img/button-download-apple-ios.svg" alt="button-apple-ios" height="55" width="128" class="w-100">
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-6 mt-3 mb-5 md:mt-0">
+                    <div class="bg-white pt-4 pb-4 ps-3 pe-3 rounded" style="max-width: 380px; margin: 0 auto;"> <!-- Atur max-width dan margin sesuai kebutuhan -->
+                      <div class="d-flex justify-content-start mb-4">
+                        <img src="img/logo-jabar.svg" alt="logo-jawa-barat" class="me-4">
+                        <img src="img/logo-bse.svg" alt="logo-bse">
+                      </div>
+                      <form action="https://sidebar.jabarprov.go.id/administrator/anri_check" autocomplete="off" id="form-login" method="post" accept-charset="utf-8">
+                        <div class="mt-4 px-3">
+                          <input name="username" id="username" data-cy="login__username-input" type="text" placeholder="Username" class="form-control mb-3">
+                          <p id="error-username" class="text-error"></p>
+                          <div class="input-group mb-3">
+                            <input name="password" id="password" data-cy="login__password-input" type="password" placeholder="Password" class="form-control">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                              <i class="bi bi-eye-fill"></i>
+                            </button>
+                          </div>
+                          <p id="error-password" class="text-error"></p>
+                          <div class="captcha-box d-flex align-items-center mt-3" data-captcha-time="1699575052.7923">
+                            <span class="box-image captcha_img"><img id="image-captcha" src="img/1699581712.2768.png" style="width: 150px; height: 30px; border: 0;" alt=" "></span>
+                            <a class="ms-4 cursor-pointer refresh-captcha" style="text-decoration: none;"><i class="bi bi-arrow-repeat"></i></a>
+                          </div>
+                          <input name="captcha" type="text" id="captcha-code" data-cy="login__captcha-input" placeholder="Captcha Kode" class="form-control mt-3">
+                          <p id="error-captcha-code" class="text-error"></p>
+                          <a href="https://siap.jabarprov.go.id/autologin/sikd" class="d-block mb-3">
+                            <button class="btn btn-primary rounded-pill w-100 font-semibold">Login</button>
+                          </a>
+                          <div class="w-100 border-b border-gray-200 text-center mt-4">
+                            <span class=" bg-white text-sm font-medium text-gray-500">atau</span>
+                            <hr>
+                          </div>
+                        </div>
+                      </form>
+                      <div class="px-3">
+                        <a href="https://siap.jabarprov.go.id/autologin/sikd" class="d-block mb-3">
+                          <button class="btn btn-outline-secondary rounded-pill w-100 font-semibold">Login dengan TRK</button>
+                        </a>
+                        <a href="https://sidebar.jabarprov.go.id/Login_sso" class="d-block">
+                          <button class="btn btn-outline-secondary rounded-pill w-100 font-semibold" id="login-sso">Login dengan SSO</button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>                   
+              </div>   
+        </div>
+      </section>
+
+      <br><br><br>\
+
+
+      <div class="container d-flex me-5">
+        <div class="p-2 col-md-6 flex-grow-1 mt-5 me-5">
+          <h4>Dashboard Keaktifan User Sidebar</h4>
+        </div>
+        <div class="col-md-6 p-2 mt-5 ps-5 ms-3">
+          <p>Pembaruan data: Rabu, 08 November 2023 05:01:33</p>
+        </div>
+      </div>
+
+      <div class="container me-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="opd-tab" data-bs-toggle="tab" data-bs-target="#opd-tab-pane" type="button" role="tab" aria-controls="opd-tab-pane" aria-selected="true">OPD</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="naskah-tab" data-bs-toggle="tab" data-bs-target="#naskah-tab-pane" type="button" role="tab" aria-controls="naskah-tab-pane" aria-selected="false">Naskah</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="opd-tab-pane" role="tabpanel" aria-labelledby="opd-tab" tabindex="0">
+            <div class="container d-flex mt-3">
+              <p class="me-3">OPD: </p>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  All
+                </button>
+                <ul class="dropdown-menu" style="max-height: 200px; overflow-y: auto;">
+                  <li><a class="dropdown-item" href="#">ALL</a></li>
+                  <li><a class="dropdown-item" href="#">BAKESBANGPOL</a></li>
+                  <li><a class="dropdown-item" href="#">BANHUB</a></li>
+                  <li><a class="dropdown-item" href="#">BAPENDA</a></li>
+                  <li><a class="dropdown-item" href="#">BAPPEDA</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO ADPIM</a></li>
+                  <li><a class="dropdown-item" href="#">BIRU BARJAS</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO BUMD</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO EKONIMI</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO HUK&HAM</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO KESRA</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO ORG</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO PEMOTDA</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO UM</a></li>
+                  <li><a class="dropdown-item" href="#">BKD</a></li>
+                  <li><a class="dropdown-item" href="#">BP2D</a></li>
+                  <li><a class="dropdown-item" href="#">BPBD</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO EKONIMI</a></li>
+                  <li><a class="dropdown-item" href="#">BIRO HUK&HAM</a></li>
+                </ul>
+              </div>
+
+              <p class="me-3 ms-3">Role Jabatan: </p>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  All
+                </button>
+                <ul class="dropdown-menu" style="max-height: 200px; overflow-y: auto;">
+                  <li><a class="dropdown-item" href="#">All</a></li>
+                  <li><a class="dropdown-item" href="#">Belum Daftar Sidebar</a></li>
+                  <li><a class="dropdown-item" href="#">Lainnya</a></li>
+                  <li><a class="dropdown-item" href="#">Pejabat Struktural</a></li>
+                  <li><a class="dropdown-item" href="#">Staf / Pelaksana</a></li>
+                  <li><a class="dropdown-item" href="#">Unit kearsipan</a></li>
+                  <li><a class="dropdown-item" href="#">Unit Pengelola / TU</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="container mt-2 text-center">
+              <div class="row border pt-2" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <div class="col">
+                  <p style="font-size: 17px;">Targeted User</p>
+                  <p style="font-size: 25px;"><b>10.403</b></p>
+                </div>
+                <div class="col">
+                  <p style="font-size: 17px;">Registered User</p>
+                  <p style="font-size: 25px;"><b>9.648</b></p>
+                </div>
+                <div class="col">
+                  <p style="font-size: 17px;">Acquisition User</p>
+                  <p style="font-size: 25px;"><b>7.534</b></p>
+                </div>
+                <div class="col">
+                  <p style="font-size: 17px;">Acquisition User</p>
+                  <p style="font-size: 25px;"><b>78,1%</b></p>
+                </div>
+              </div>
+            </div>
+
+
+            <style>
+              .form-control[type="date"] {
+                font-size: 14px; /* Adjust the font size as needed */
+                height: calc(1.5em + 0.75rem + 2px); /* Match the height with the adjacent text */
+                max-width: 150px; /* Set the desired maximum width */
+                box-sizing: border-box; /* Include padding and border in total width calculation */
+              }
+            </style>
+            
+            <div class="container mt-3 mb-3 justify-content-start">
+              <div class="row d-flex">
+                <div class="col">
+                  <p class="me-3 mb-0">Tanggal Awal: </p>
+                </div>
+                <div class="col">
+                  <div class="input-group">
+                    <input type="date" class="form-control">
+                  </div>
+                </div>
+                <div class="col">
+                  <p class="mb-0">Tanggal Akhir: </p>
+                </div>
+                <div class="col">
+                  <div class="input-group">
+                    <input type="date" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>       
+            <div class="container mt-2 text-center">
+              <div class="row border pt-2" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <div class="col">
+                  <p style="font-size: 17px;">Need Active User</p>
+                  <p style="font-size: 25px;"><b>8.995</b></p>
+                </div>
+                <div class="col">
+                  <p style="font-size: 17px;">Total User Aktif</p>
+                  <p style="font-size: 25px;"><b>6.147</b></p>
+                </div>
+                <div class="col">
+                  <p style="font-size: 17px;">% User Aktif</p>
+                  <p style="font-size: 25px;"><b>68,3%</b></p>
+                </div>
+                <div class="col">
+                  <p style="font-size: 17px;">% Monthly Active User</p>
+                  <p style="font-size: 25px;"><b>66,3%</b></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Existing code -->
+
+<div class="container d-flex mt-3">
+  <p class="me-3">Pilih Chart: </p>
+  <div class="dropdown">
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      % User Aktif
+    </button>
+    <ul class="dropdown-menu" style="max-height: 200px; overflow-y: auto;">
+      <li><a class="dropdown-item" href="#">% User Aktif</a></li>
+      <li><a class="dropdown-item" href="#">Rata-Rata Keaktifan</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- New container for bar charts -->
+<div class="container mt-2">
+  <div class="row border pt-2 pb-2">
+    <!-- First column with bar charts -->
+    <div class="col-md-6">
+      <div class="mb-3 text-start" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <p class="mb-0" style="font-size: 20px;">Peringkat 5 Teratas % User Aktif</p>
+      </div>
+      <!-- Chart 1 -->
+      <div class=""><span class="progress-label">DISKOMINFO</span></div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 2 -->
+      <div class="mt-2"><span class="progress-label">BIRO EKONOMI</span></div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 3 -->
+      <div class="mt-2"><span class="progress-label">BIRO BARJAS</span></div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 4 -->
+      <div class="mt-2"><span class="progress-label">BANHUB</span></div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 5 -->
+      <div class="mt-2"><span class="progress-label">BKD</span></div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 98.6%;" aria-valuenow="98.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(98,6%)</span></div>
+
+
+    </div>
+
+    <!-- Second column with bar charts -->
+    <div class="col-md-6">
+      <div class="mb-3 text-start" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <p class="mb-0" style="font-size: 20px;">Peringkat 5 Terbawah % User Aktif</p>
+      </div>
+      <!-- Chart 6 -->
+      <div class=""><span class="progress-label">DBMPR</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 28.3%;" aria-valuenow="28.3" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(28,3%)</span></div>
+
+      <!-- Chart 7 -->
+      <div class="mt-2"><span class="progress-label">BAPENDA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 28.8%;" aria-valuenow="28.8" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(28,8%)</span></div>
+      
+      <!-- Chart 8 -->
+      <div class="mt-2"><span class="progress-label">SETWAN</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 41.5%;" aria-valuenow="41.5" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(41,5%)</span></div>
+
+      <!-- Chart 9 -->
+      <div class="mt-2"><span class="progress-label">POLPP</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 45.9%;" aria-valuenow="45.9" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(45,9%)</span></div>
+
+      <!-- Chart 10 -->
+      <div class="mt-2"><span class="progress-label">DISTANHORTI</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 47.3%;" aria-valuenow="47.3" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(47,3%)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row border pt-2 pb-2">
+    <!-- First column with bar charts -->
+    <div class="col-md-6">
+      <div class="mb-3 text-start" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <p class="mb-0" style="font-size: 20px;">% User Aktif Per OPD</p>
+      </div>
+      <div class="scrollable-column" style="height: 400px; overflow-y: auto;">
+      <!-- Chart 1 -->
+      <div class=""><span class="progress-label">DISKOMINFO</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 2 -->
+      <div class="mt-2"><span class="progress-label">BIRO EKONOMI</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 3 -->
+      <div class="mt-2"><span class="progress-label">BIRO BARJAS</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 4 -->
+      <div class="mt-2"><span class="progress-label">BANHUB</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(100,0%)</span></div>
+
+      <!-- Chart 5 -->
+      <div class="mt-2"><span class="progress-label">BKD</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 98.6%;" aria-valuenow="98.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(98,6%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DP3AKB</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 97.5%;" aria-valuenow="97.5" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(97,5%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">ESDM</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 97.3%;" aria-valuenow="97.3" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(97,3%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BIRO ORG</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 96.3%;" aria-valuenow="96.3" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(96,3%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">SETDA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 95.0%;" aria-valuenow="95.0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(95,0%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BAPPEDA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 93.6%;" aria-valuenow="93.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(93,6%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BPKAD</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 93.5%;" aria-valuenow="93.5" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(93,5%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">INSPT</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 93.4%;" aria-valuenow="93.4" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(93,4%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BIRO PEMOTDA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 92.7%;" aria-valuenow="92.7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(92,7%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISHUB</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 90.7%;" aria-valuenow="90.7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(90,7%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISKUK</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 88.7%;" aria-valuenow="88.7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(88,7%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISKES</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 85.8%;" aria-valuenow="85.8" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(85,8%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BASKESBANGPOL</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 85.7%;" aria-valuenow="85.7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(85,7%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISPERKIM</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 85.6%;" aria-valuenow="85.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(85,6%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DLH</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(85,0%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DPMPTSP</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 83.7%;" aria-valuenow="83.7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(83,7%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISDUKCAPIL</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 82.2%;" aria-valuenow="82.2" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(82,2%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BPBD</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 80.9%;" aria-valuenow="80.9" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(80,9%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DPMDESA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 79.6%;" aria-valuenow="79.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(79,6%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISPORA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 78.9%;" aria-valuenow="78.9" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(78,9%)</span></div>
+    </div>
+    </div>
+
+    <!-- Second column with bar charts -->
+    <div class="col-md-6">
+      <div class="mb-3 text-start" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <p class="mb-0" style="font-size: 20px;">Rata-Rata Keaktifan User OPD</p>
+      </div>
+      <div class="scrollable-column" style="height: 400px; overflow-y: auto;">
+      <!-- Chart 6 -->
+      <div class=""><span class="progress-label">INSPT</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 89.6%;" aria-valuenow="89.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(89,6%)</span></div>
+
+      <!-- Chart 7 -->
+      <div class="mt-2"><span class="progress-label">SETDA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 86.7%;" aria-valuenow="86.7" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(86,7%)</span></div>
+      
+      <!-- Chart 8 -->
+      <div class="mt-2"><span class="progress-label">DISKOMINFO</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 86.2%;" aria-valuenow="86.2" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(86,2%)</span></div>
+
+      <!-- Chart 9 -->
+      <div class="mt-2"><span class="progress-label">BIRO EKONOMI</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 86.1%;" aria-valuenow="86.1" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(86.1%)</span></div>
+
+      <!-- Chart 10 -->
+      <div class="mt-2"><span class="progress-label">BIRO ORG</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 80.3%;" aria-valuenow="80.3" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(80,3%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BIRO PEMOTDA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 80.2%;" aria-valuenow="80.2" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(80,2%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BPKAD</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 79.0%;" aria-valuenow="79.0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(79,0%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BAKESBANGPOL</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 77.6%;" aria-valuenow="77.6" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(77,6%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">ESDM</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 75.5%;" aria-valuenow="75.5" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(75,5%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BKD</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 75.1%;" aria-valuenow="75.1" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(75,1%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BANHUB</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 74.4%;" aria-valuenow="74.4" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(74,4%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISDUKCAPIL</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(70,0%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DLH</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 64.9%;" aria-valuenow="64.9" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(64,9%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BIRO BARJAS</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 64.4%;" aria-valuenow="64.4" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(64,4%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BIRO KESRA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 63.2%;" aria-valuenow="63.2" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(63,2%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DP3AKB</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 63.1%;" aria-valuenow="63.1" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(63,1%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">BPBD</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 61.9%;" aria-valuenow="61.9" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(61,9%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISKES</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 61.3%;" aria-valuenow="61.3" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(61.3%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISPERKIM</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 61.2%;" aria-valuenow="61.2" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(61,2%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DPMDESA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 58.9%;" aria-valuenow="58.9" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(58,9%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">REBANA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 58.2%;" aria-valuenow="58.2" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(58,2%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DKPP</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 56.4%;" aria-valuenow="56.4" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(56,4%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DISPORA</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 56.1%;" aria-valuenow="56.1" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(56,1%)</span></div>
+
+      <div class="mt-2"><span class="progress-label">DPMPTSP</span></div>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 54.5%;" aria-valuenow="54.5" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div><span class="progress-label">(54,5%)</span></div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+          <div class="tab-pane fade" id="naskah-tab-pane" role="tabpanel" aria-labelledby="naskah-tab" tabindex="0">hsdd</div>
+        </div>
+      </div>
+
+      <br><br><br>
+
+      <section id="fitur-utama" class="bg-white pt-5 container mx-auto max-w-xxl px-3 lg:px-0">
+        <div class="text-center">
+            <h1 class="mb-3" style="font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: bold;">Fitur Utama <span class="text-primary">SIDEBAR</span></h1>
+            <p style="font-size: 18px; max-width: 750px; color: #333; line-height: 1.5; margin: 0 auto;">Lebih mudah diterima, diteruskan, di disposisi, ditandatangani secara elektronik dan ditelusuri secara digital, praktis, dan aman <strong style="font-weight: bold;">Kapan Saja dan Dimana Saja</strong></p>
+        </div>
+         <br><br>
+        
+        <!-- Pembuatan Surat -->
+        <div class="d-flex justify-content-center px-5 px-0 w-full mt-5">
+          <div class="flex-grow-1 me-3" style="height: 204px;">
+              <img src="img/pembuatan-surat-icon.svg" class="w-full w-72 mb-3 mb-0" alt="pembuatan-surat-icon" height="204" width="472">
+          </div>
+          <div class="bg-light p-4 rounded-4 flex-grow-1" style="height: 204px;">
+              <div>
+                  <h1 class="mb-2 mt-3 text-lg font-semibold text-gray-900">Pembuatan Surat</h1>
+                  <div class="flex justify-content-end mb-2">
+                    <div class="w-1 h-5 bg-warning rounded mr-2" style="min-height: 5px;"></div>
+                  </div>
+                  <p class="text-base leading-6 text-gray-800">Fitur yang membantu mempercepat pembuatan konsep surat, melakukan review berjenjang, memberikan penomoran surat hingga proses penandatanganan surat secara Elektronik.</p>
+              </div>
+          </div>
+        </div>
+        
+        <!-- Distribusi Surat -->
+        <div class="d-flex justify-content-center px-5 px-0 w-full mt-5">
+          <div class="bg-light p-4 rounded-4 flex-grow-1" style="height: 204px;">
+            <div>
+                <h1 class="mb-2 mt-3 text-lg font-semibold text-gray-900">Distribusi Surat</h1>
+                <div class="flex justify-content-end mb-2">
+                  <div class="w-1 h-5 bg-danger rounded mr-2" style="min-height: 5px;"></div>
+                </div>
+                <p class="text-base leading-6 text-gray-800">Fitur yang membantu mempercepat pembuatan konsep surat, melakukan review berjenjang, memberikan penomoran surat hingga proses penandatanganan surat secara Elektronik.</p>
+            </div>
+          </div>
+          <div class="flex-grow-1 ms-3" style="height: 204px;">
+            <img src="img/distribusi-surat-icon.svg" class="w-full w-72 mb-3 mb-0" alt="distribusi-surat-icon" height="204" width="472">
+          </div>
+        </div>
+    
+        <!-- Disposisi Surat -->
+        <div class="d-flex justify-content-center px-5 px-0 w-full mt-5">
+          <div class="flex-grow-1 me-3" style="height: 204px;">
+              <img src="img/disposisi-surat-icon.svg" class="w-full w-72 mb-3 mb-0" alt="disposisi-surat-icon" height="204" width="472">
+          </div>
+          <div class="bg-light p-4 rounded-4 flex-grow-1" style="height: 204px;">
+              <div>
+                  <h1 class="mb-2 mt-3 text-lg font-semibold text-gray-900">Disposisi Surat</h1>
+                  <div class="flex justify-content-end mb-2">
+                    <div class="w-1 h-5 bg-success rounded mr-2" style="min-height: 5px;"></div>
+                  </div>
+                  <p class="text-base leading-6 text-gray-800">Fitur yang membantu memudahkan dalam melakukan pendisposisian surat secara langsung baik yang dikirim oleh Dinas lain maupun Internal Dinas.</p>
+              </div>
+          </div>
+        </div>
+    
+        <!-- Pengarsipan Surat -->
+        <div class="d-flex justify-content-center px-5 px-0 w-full mt-5">
+          <div class="bg-light p-4 rounded-4 flex-grow-1" style="height: 204px;">
+            <div>
+                <h1 class="mb-2 mt-1 text-lg font-semibold text-gray-900">Pengarsipan Surat</h1>
+                <div class="flex justify-content-end mb-2">
+                  <div class="w-1 h-5 bg-primary rounded mr-2" style="min-height: 5px;"></div>
+                </div>
+                <p class="text-base leading-6 text-gray-800">Fitur yang mendukung proses penyelenggaraan kearsipan di lingkungan Provinsi Jawa Barat sehingga memudahkan dalam temu kembali arsip dan pemberkasan arsip digital secara cepat dan tepat.</p>
+            </div>            
+          </div>
+          <div class="flex-grow-1 ms-3" style="height: 204px;">
+            <img src="img/pengarsipan-surat-icon.svg" class="w-full w-72 mb-3 mb-0" alt="pengarsipan-surat-icon" height="204" width="472">
+          </div>
+        </div>
+    </section>
+    <br><br><br>
+
+    <section id="tutorial" style="padding-top: 1.25rem; margin: 0 auto; max-width: 1160px; padding-left: 1.25rem; padding-right: 1.25rem;">
+      <h1 style="font-size: 2.5rem; font-weight: bold; color: #333; margin-bottom: 1.5rem;">Tutorial</h1>
+      <p style="color: #333; font-size: 1.25rem; margin-bottom: 2.5rem;">Pilih video tutorial website atau mobile dibawah ini</p>
+      
+      <!-- Buttons for tutorial selection -->
+      <div style="display: flex; background-color: #f8f9fa; border-radius: 2rem; margin-left: 0.5rem; margin-right: 0.5rem;">
+          <button class="btn btn-outline-secondary" style="flex-grow: 1; border-radius: 2rem; padding: 0.75rem; cursor: pointer;" onclick="changeTutorialUrl('website')">
+              <div style="display: flex; justify-content: center; align-items: center;">Tutorial Website <i style="margin-left: 0.5rem;" class="bi bi-laptop-fill"></i></div>
+          </button>
+          <button class="btn btn-outline-secondary" style="flex-grow: 1; border-radius: 2rem; padding: 0.75rem; cursor: pointer;" onclick="changeTutorialUrl('mobile')">
+              <div style="display: flex; justify-content: center; align-items: center;">Tutorial Mobile <i style="margin-left: 0.75rem;" class="bi bi-phone-fill"></i></div>
+          </button>
+      </div>
+  
+      <!-- Video iframe -->
+      <div style="width: 100%; padding-left: 1.25rem; padding-right: 1.25rem; margin-top: 1rem;">
+          <iframe height="315" width="100%" id="video-tutorial" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen style="border-radius: 1rem;"></iframe>
+      </div>
+  </section>
+
+  <style>
+    #pusat-bantuan {
+        padding-top: 5rem;
+        margin-bottom: 3rem;
+    }
+
+    .background-container-pusat-bantuan {
+        background: url('https://sidebar.jabarprov.go.id/asset//landing-page/image/background-pusat-bantuan-landing-page.svg') no-repeat center/cover;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+        border-radius: 0.5rem;
+    }
+
+    .text-container-pusat-bantuan {
+        color: white;
+    }
+
+    h1.pusat-bantuan {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .pusat-bantuan {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .button-container-pusat-bantuan {
+        margin-top: 1.5rem;
+    }
+
+    .button-container-pusat-bantuan
+    .pst-b {
+        width: 100%;
+        max-width: 161px;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: #FFD026;
+        color: black;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .pst-b:hover {
+        opacity: 0.75;
+    }
+</style>
+
+  <section id="pusat-bantuan" class="container">
+    <div class="background-container-pusat-bantuan">
+        <div class="text-container-pusat-bantuan mt-5 mb-5 ms-3">
+            <h1 class="pusat-bantuan" style="font-size: 30px;">Hubungi kami untuk Membantu Anda</h1>
+            <p class="pusat-bantuan" style="font-size: 18px;">Klik tombol Pusat Bantuan untuk berkonsultasi dengan Tim SIDEBAR</p>
+        </div>
+        <div class="button-container-pusat-bantuan btn-lg mt-5 mb-5 me-5 pe-5">
+            <a href="https://bit.ly/SidebarWebsite" target="_blank">
+                <button class="pst-b">Pusat Bantuan</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="container-fluid mx-auto d-flex justify-content-between align-items-center py-4 px-5">
+  <img src="img/logo-sidebar-footer.png" alt="logo-footer" height="40" width="171" class="mb-3 mb-lg-0">
+  <p class="text-small mt-3 lg-mt-0">Copyright © 2016 - 2023 Arsip Nasional Republik Indonesia. Developed by
+      Dispusipda Jabar dan Diskominfo Jabar</p>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
