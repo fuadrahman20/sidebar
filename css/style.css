@@ -1,0 +1,59 @@
+.line-pembuatan-surat {
+    position: relative;
+    margin-top: 10px; /* Adjust the margin-top as needed */
+}
+
+.line-pembuatan-surat::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust the distance of the line from the text as needed */
+    left: 0;
+    width: 100%; /* Adjust the width of the line as needed */
+    height: 3px; /* Adjust the height of the line as needed */
+    background-color: yellow; /* Change the color of the line as needed */
+}
+
+.line-distribusi-surat {
+    position: relative;
+    margin-top: 10px; /* Adjust the margin-top as needed */
+}
+
+.line-distribusi-surat::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust the distance of the line from the text as needed */
+    left: 0;
+    width: 100%; /* Adjust the width of the line as needed */
+    height: 3px; /* Adjust the height of the line as needed */
+    background-color: red; /* Change the color of the line as needed */
+}
+
+.line-disposisi-surat {
+    position: relative;
+    margin-top: 10px; /* Adjust the margin-top as needed */
+}
+
+.line-disposisi-surat::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust the distance of the line from the text as needed */
+    left: 0;
+    width: 100%; /* Adjust the width of the line as needed */
+    height: 3px; /* Adjust the height of the line as needed */
+    background-color: green; /* Change the color of the line as needed */
+}
+
+.line-pengarsipan-surat {
+    position: relative;
+    margin-top: 10px; /* Adjust the margin-top as needed */
+}
+
+.line-pengarsipan-surat::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust the distance of the line from the text as needed */
+    left: 0;
+    width: 100%; /* Adjust the width of the line as needed */
+    height: 3px; /* Adjust the height of the line as needed */
+    background-color: blue; /* Change the color of the line as needed */
+}
